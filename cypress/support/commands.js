@@ -6,7 +6,7 @@ Cypress.Commands.add('realizarBusca', (texto) => {
         } else {
             cy.wait(3000)
             cy.get('[aria-label="Search button"]').first().click()
-            cy.get('#search-field').should('be.visible').type(`${texto} {enter}`)
+            cy.get('#search-field').type(`${texto} {enter}`)
         }
     })
     cy.contains(`Resultados encontrados para: ${texto}`).should('be.visible')
