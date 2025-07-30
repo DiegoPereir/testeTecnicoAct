@@ -155,27 +155,6 @@ O workflow está localizado em `.github/workflows/cypress-tests.yml` e inclui:
    - Notificação no Slack em caso de falha
    - Link direto para o relatório de execução
 
-### 📊 **Benefícios do CI/CD**
-
-- ✅ **Automação completa**: Testes executados automaticamente
-- ✅ **Qualidade contínua**: Validação antes de cada merge
-- ✅ **Monitoramento**: Execução diária para detectar regressões
-- ✅ **Relatórios**: Geração automática de relatórios detalhados
-- ✅ **Notificações**: Alertas em tempo real para falhas
-- ✅ **Artefatos**: Preservação de evidências de teste
-
-### 🔧 **Configuração Local**
-
-Para testar o workflow localmente:
-
-```bash
-# Instalar act (GitHub Actions local)
-npm install -g act
-
-# Executar workflow localmente
-act push
-```
-
 ### 📈 **Métricas e Relatórios**
 
 O CI/CD gera automaticamente:
@@ -192,9 +171,3 @@ O CI/CD gera automaticamente:
 # Secrets necessários no GitHub
 SLACK_WEBHOOK_URL: URL do webhook do Slack
 ```
-
-#### Personalização do Workflow
-- **Paralelização**: Possibilidade de executar testes em paralelo
-- **Matriz de navegadores**: Testes em múltiplos navegadores
-- **Cache**: Cache de dependências para execução mais rápida
-- **Retry**: Reexecução automática em caso de falhas flaky
