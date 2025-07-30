@@ -1,7 +1,7 @@
 describe('Testes da funcionalidade pesquisa', () => {
    beforeEach(function () {
       cy.fixture("dados").as('dadosAgibank');
-      cy.visit('/')
+      cy.visit('/servicos')
    });
 
    it('Realizar busca com sucesso', function () {
