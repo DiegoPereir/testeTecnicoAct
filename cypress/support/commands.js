@@ -4,7 +4,7 @@ Cypress.Commands.add('realizarBusca', (texto) => {
         if ($field.is(':visible')) {
             cy.wrap($field).type(`${texto} {enter}`)
         } else {
-            cy.wait(300)
+            cy.wait(3000)
             cy.get('[aria-label="Search button"]').first().click()
             cy.get('#search-field').should('be.visible').type(`${texto} {enter}`)
         }
