@@ -4,7 +4,7 @@ Cypress.Commands.add('realizarBusca', (texto) => {
         if ($field.is(':visible')) {
             cy.wrap($field).type(`${texto} {enter}`)
         } else {
-            cy.wait(2000)
+            cy.wait(300)
             cy.get('[aria-label="Search button"]').first().click()
             cy.get('#search-field').should('be.visible').type(`${texto} {enter}`)
         }
@@ -18,6 +18,6 @@ Cypress.Commands.add('validarRedirecionamento', (caminhoUrl, H1presente) => {
 })
 
 Cypress.Commands.add('aguardarPaginaCarregar', () => {
-    cy.visit('/')
-    cy.contains('Tudo Sobre Empréstimo').should('be.visible')
+    cy.visit('servicos/')
+    cy.contains('Agibank').wait(1000).should('be.visible')
 });
