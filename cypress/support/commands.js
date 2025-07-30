@@ -10,7 +10,7 @@ Cypress.Commands.add('validarRedirecionamento', (caminhoUrl, H1presente) => {
 })
 
 Cypress.Commands.add('aguardarPaginaCarregar', () => {
-    cy.intercept('POST', '**/wp-content/plugins/litespeed-cache/guest.vary.php').as('litespeed')
+    cy.intercept('POST', 'https://l.clarity.ms/collect').as('collect')
     cy.visit('/')
-    cy.wait('@litespeed').wait(1000).its('response.statusCode').should('eq', 200)
+    cy.wait('@collect').wait(1000).its('response.statusCode').should('eq', 204)
 });
