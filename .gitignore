@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Cypress output directories
+cypress/screenshots/
+cypress/videos/
+cypress/reports/
+
+# Allure Reports
+allure-results/
+allure-report/
+

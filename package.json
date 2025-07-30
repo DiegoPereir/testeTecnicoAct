@@ -1,0 +1,19 @@
+{
+  "name": "testeStoom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:ui": "npx cypress open",
+    "e2e": "cypress run --env allure=true",
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open  allure-report",
+    "test:allure": "npm run e2e && npm run report:allure"
+  },
+  "author": "Diego de Sousa Pereira",
+  "license": "MIT",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "cpf-cnpj-validator": "^1.0.3",
+    "cypress": "^13.16.1"
+  }
+}
