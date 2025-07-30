@@ -10,9 +10,8 @@ Cypress.Commands.add('validarRedirecionamento', (caminhoUrl, H1presente) => {
 })
 
 Cypress.Commands.add('aguardarPaginaCarregar', () => {
-    cy.visit('/');
-    cy.get('[viewBox="0 0 256 512"]').should('be.visible');
+    cy.intercept('POST', '**/wp-content/plugins/litespeed-cache/guest.vary.php').as('litespeed');
+    cy.visit('/institucional/');
+    cy.wait('@litespeed').its('response.statusCode').should('eq', 200);
+    cy.url().should('include', '/institucional/');
 });
-
-
-
