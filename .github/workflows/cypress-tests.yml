@@ -6,36 +6,37 @@ on:
   pull_request:
     branches: [master]
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '0 9 * * *' # Executa todos os dias às 09h UTC
 
 jobs:
   cypress:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+
     steps:
-      - name: Check out repository
+      - name: 🔄 Check out repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: ⚙️ Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Run Cypress tests
+      - name: 🧪 Run Cypress tests on Firefox
         uses: cypress-io/github-action@v5
         with:
-          browser: chrome
+          browser: firefox
 
-      - name: Install Allure CLI
+      - name: 🛠️ Install Allure CLI
         run: npm install -g allure-commandline --save-exact
 
-      - name: Generate Allure Report
+      - name: 📊 Generate Allure Report
         if: always()
         run: npm run report:allure
 
-      - name: Upload Cypress artifacts
+      - name: 📁 Upload Cypress artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -46,7 +47,7 @@ jobs:
             cypress/videos/
             cypress/screenshots/
 
-      - name: Send Slack notification on failure
+      - name: 🔔 Send Slack notification on failure
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
