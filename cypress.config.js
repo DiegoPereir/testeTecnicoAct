@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
-  defaultCommandTimeout: 10000,
+  defaultCommandTimeout: 5000,
   video: true,
   retries: 2,
   viewportWidth: 1600,

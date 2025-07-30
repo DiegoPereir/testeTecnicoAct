@@ -1,6 +1,14 @@
 Cypress.Commands.add('realizarBusca', (texto) => {
     cy.get('[aria-label="Search button"]').first().click()
-    cy.get('#search-field').type(`${texto} {enter}`)
+    cy.get('#search-field').then(($field) => {
+        if ($field.is(':visible')) {
+            cy.wrap($field).type(`${texto} {enter}`)
+        } else {
+            cy.wait(1000)
+            cy.get('[aria-label="Search button"]').first().click()
+            cy.get('#search-field').should('be.visible').type(`${texto} {enter}`)
+        }
+    })
     cy.contains(`Resultados encontrados para: ${texto}`).should('be.visible')
 })
 
@@ -10,7 +18,6 @@ Cypress.Commands.add('validarRedirecionamento', (caminhoUrl, H1presente) => {
 })
 
 Cypress.Commands.add('aguardarPaginaCarregar', () => {
-    cy.intercept('POST', 'https://l.clarity.ms/collect').as('collect')
     cy.visit('/')
-    cy.wait('@collect').wait(1000).its('response.statusCode').should('eq', 204)
+    cy.contains('Tudo Sobre Empréstimo').should('be.visible')
 });
