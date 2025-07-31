@@ -10,6 +10,8 @@ Este projeto de automação de testes foi desenvolvido para validar funcionalida
 - **Navegação e Redirecionamento**: Validação de links e páginas do menu principal
 - **Geração de Relatórios**: Integração com Allure Reports para visualização detalhada dos resultados
 
+![alt text](image/image.png)
+
 ## 🚀 Funcionalidades Testadas
 
 ### 1. Pesquisa no Blog
