@@ -18,6 +18,6 @@ Cypress.Commands.add('validarRedirecionamento', (caminhoUrl, H1presente) => {
 })
 
 Cypress.Commands.add('aguardarPaginaCarregar', () => {
-    cy.visit('servicos/')
-    cy.contains('Agibank').wait(1000).should('be.visible')
+    cy.visit('/servicos/')
+    cy.contains('Agibank').wait(1500).should('be.visible')
 });
