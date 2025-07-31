@@ -1,12 +1,12 @@
 describe('Testes da funcionalidade pesquisa', () => {
    beforeEach(function () {
       cy.fixture("dados").as('dadosAgibank');
-      cy.visit('/servicos')
+      cy.visit('/')
    });
 
    it('Realizar busca com sucesso', function () {
       cy.realizarBusca(this.dadosAgibank.pesquisaExistente)
-      cy.contains('a', 'O que é DARF? Tudo o que você precisa saber sobre emissão e pagamento').should('be.visible')
+      cy.contains('a', 'Novas regras Pix: veja o que muda com as decisões do Banco Central').should('be.visible')
    });
 
    it('Realizar busca com nenhum resultado', function () {

@@ -4,7 +4,7 @@ Cypress.Commands.add('realizarBusca', (texto) => {
         if ($field.is(':visible')) {
             cy.wrap($field).type(`${texto} {enter}`)
         } else {
-            cy.wait(3000)
+            cy.wait(5000)
             cy.get('[aria-label="Search button"]').first().click()
             cy.get('#search-field').type(`${texto} {enter}`)
         }
@@ -21,5 +21,5 @@ Cypress.Commands.add('aguardarPaginaCarregar', () => {
     cy.clearAllCookies()
     cy.clearAllLocalStorage()
     cy.visit('/')
-    cy.contains('Últimas do Blog do Agi').wait(1500).should('be.visible')
+    cy.contains('Stories').should('be.visible').wait(1500)
 });

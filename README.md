@@ -13,7 +13,7 @@ Este projeto de automação de testes foi desenvolvido para validar funcionalida
 ## 🚀 Funcionalidades Testadas
 
 ### 1. Pesquisa no Blog
-- ✅ Busca com termo existente (ex: "O que é DARF?")
+- ✅ Busca com termo existente (ex: "Novas regras Pix: veja o que muda com as decisões do Banco Central?")
 - ✅ Busca com termo inexistente (validação de mensagem de erro)
 
 ### 2. Navegação e Redirecionamento
