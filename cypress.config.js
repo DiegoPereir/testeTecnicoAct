@@ -8,7 +8,7 @@ module.exports = defineConfig({
   viewportWidth: 1600,
   viewportHeight: 900,
   e2e: {
-    baseUrl: 'https://blog.agibank.com.br',
+    baseUrl: 'https://blog.agibank.com.br/',
     setupNodeEvents(on, config) {
       allureWriter(on, config);
       return config;

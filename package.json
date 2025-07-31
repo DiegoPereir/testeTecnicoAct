@@ -6,7 +6,8 @@
   "scripts": {
     "test:ui": "npx cypress open",
     "e2e": "cypress run --env allure=true",
-  "report:allure": "npx allure generate allure-results --clean -o allure-report",
+    "report:allure": "npx allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
     "test:allure": "npm run e2e && npm run report:allure"
   },
   "author": "Diego de Sousa Pereira",
